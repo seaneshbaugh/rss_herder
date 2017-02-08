@@ -25,3 +25,19 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# %% Coherence Configuration %%   Don't remove this line
+config :coherence,
+  user_schema: RssHerder.User,
+  repo: RssHerder.Repo,
+  module: RssHerder,
+  logged_out_url: "/",
+  email_from_name: "Sean Eshbaugh",
+  email_from_email: "seaneshbaugh@gmail.com",
+  opts: [:invitable, :confirmable, :authenticatable, :recoverable, :lockable, :trackable, :unlockable_with_token, :registerable]
+
+config :coherence, RssHerder.Coherence.Mailer,
+  adapter: Swoosh.Adapters.SMTP,
+  relay: "localhost"
+  #api_key: "your api key here"
+# %% End Coherence Configuration %%
