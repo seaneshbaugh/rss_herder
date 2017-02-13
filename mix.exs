@@ -19,7 +19,7 @@ defmodule RssHerder.Mixfile do
   def application do
     [mod: {RssHerder, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :coherence, :gen_smtp]]
+                    :phoenix_ecto, :postgrex, :coherence, :gen_smtp, :feedme]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,8 +38,9 @@ defmodule RssHerder.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:coherence, "~> 0.3"},
-     {:gen_smtp, "~> 0.11.0"}]
+     {:coherence, git: "https://github.com/smpallen99/coherence"},
+     {:gen_smtp, "~> 0.11.0"},
+     {:feedme, git: "https://github.com/umurgdk/elixir-feedme"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
